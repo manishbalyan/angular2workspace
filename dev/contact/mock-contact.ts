@@ -5,7 +5,7 @@ import {Contact} from "./contact";
 
 export const CONTACTS: Contact[] = [
     {
-        firstName: 'Manish',
+        firstName : 'Manish',
         lastName: 'Balyan',
         email: 'balyan05.manish@gmail.com',
         phone: '+91-9999873524'

@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
-
 </head>
 <body>
-<h2 align="center">Contact Detail</h2>
-
+<h2 align="center">Create New Contact</h2>
 <div class="test">
     <div>
         <label> Firstname: </label>
-        <input type="text" [(ngModel)]="contact.firstName">
+        <input type="text" #firstName>
     </div>
     <div>
         <label> Lastname: </label>
-        <input type="text" [(ngModel)]="contact.lastName">
+        <input type="text" #lastName >
     </div>
     <div>
         <label> Email: </label>
-        <input type="text" [(ngModel)]="contact.email">
+        <input type="text" #email >
     </div>
     <div>
         <label> Phone Number: </label>
-        <input type="text" [(ngModel)]="contact.phone">
+        <input type="text" #phone>
     </div>
-
+    <button class="newcontact" (click)="onAddContact(firstName.value, lastName.value, email.value, phone.value)">Submit</button>
 </div>
 </body>
 </html>
