@@ -1,9 +1,11 @@
 /**
  * Created by consultadd on 27/7/16.
  */
-import {Component} from "angular2/core"
+import {Component, OnInit} from "angular2/core"
 import {ContactService} from "./contact.service";
 import {Contact} from "./contact";
+import {Router, RouteParams} from "angular2/router";
+import {RouteMatch} from "angular2/src/router/rules/rules";
 
 @Component({
     templateUrl: 'templates/new-contact.tpl.html',
@@ -11,14 +13,22 @@ import {Contact} from "./contact";
     providers: [ContactService]
 })
 
-export class NewContactComponent{
+export class NewContactComponent implements OnInit{
     // create constructor to inject our service in components
-    constructor(private _contactService: ContactService){
+    newContact: Contact;
+    constructor(private _contactService: ContactService, private _router: Router, private _routeParams: RouteParams){ //in order to navigate nject router to your class
+                                                                                // constructor
 
     }
 
-    onAddContact(firstName, lastName, email,phone){
-        let contact: Contact = {firstName: firstName, lastName: lastName, email: email, phone: phone};
-        this._contactService.insertContact(contact); //access contact service and insert contact
+    onSubmit(){
+        this._contactService.insertContact(this.newContact); //access contact service and insert contact
+        this._router.navigate(['Contacts']);// use navigation method to navigate to Contacts route after onSubmit trigger
         }
+
+
+
+    ngOnInit(): any{
+        this.newContact = {firstName: '', lastName:this._routeParams.get("lastName"), email: "", phone: ""};
+    }
 }

@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="angular-2-beta-boilerplate node_modules" level="project" />
+    <orderEntry type="library" name="http.dev" level="application" />
   </component>
 </module>

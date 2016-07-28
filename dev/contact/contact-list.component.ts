@@ -19,7 +19,7 @@ import {Contact} from "./contact";
 export class ContactListComponent implements OnInit{
     public contacts: Contact[];
 
-    public  selectedContact = {};
+    public  selectedContact = null;
 
     constructor(private _contactService: ContactService){}
 
